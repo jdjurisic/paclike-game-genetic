@@ -21,7 +21,7 @@ import java.io.IOException;
  **/
 public class PacLike extends Thread {
     // Ovde možete promeniti fps i da li želite renderovanje simulacije.
-    private static final boolean RENDER = true;
+    public boolean RENDER = false;
     private static final int FPS = 60;
 
     // NADALJE NE MENJATI NIŠTA!
@@ -45,8 +45,9 @@ public class PacLike extends Thread {
     private BufferedImage pelletImage;
 
     // Setup
-    public PacLike(Player player) {
+    public PacLike(Player player,boolean rndr) {
         gameState = new GameState(player);
+        RENDER = rndr;
         // JFrame
         frame = new JFrame();
         frame.addWindowListener(new FrameClose());
@@ -199,8 +200,7 @@ public class PacLike extends Thread {
     }
 
     private void endGame() {
-        if(totalPoints > 200) System.out.println("      "+totalPoints);
-        else System.out.println(totalPoints);
+        //System.out.println(totalPoints);
         isRunning = false;
     }
 

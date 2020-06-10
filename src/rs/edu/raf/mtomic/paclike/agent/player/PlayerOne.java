@@ -58,12 +58,6 @@ public class PlayerOne extends Player {
         return nextMove;
     }
 
-//    protected Direction directionToClosestPellet(){
-//        int findClosestPellet(){
-//
-//        }
-//}
-
     @Override
     public String toString() {
         return "PlayerOne{" +

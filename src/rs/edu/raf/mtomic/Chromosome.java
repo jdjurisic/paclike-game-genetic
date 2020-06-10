@@ -8,6 +8,8 @@ public class Chromosome {
     private double coef4;
     private double closestPellet;
 
+    private int score;
+
     public Chromosome(double coef1, double coef2, double coef3, double coef4, double closestPellet) {
         this.coef1 = clamp(coef1);
         this.coef2 = clamp(coef2);
@@ -56,6 +58,20 @@ public class Chromosome {
         this.closestPellet = clamp(closestPellet);
     }
 
+    public int getScore() {
+        return score;
+    }
+
+    public void setScore(int score) {
+        this.score = score;
+    }
+
+    public double clamp(double value){
+        if(value > 5000) return 5000;
+        else if(value < -5000) return -5000;
+        else return value;
+    }
+
     @Override
     public String toString() {
         return "Chromosome{" +
@@ -64,12 +80,7 @@ public class Chromosome {
                 ", coef3=" + coef3 +
                 ", coef4=" + coef4 +
                 ", closestPellet=" + closestPellet +
+                ", score=" + score +
                 '}';
-    }
-
-    public double clamp(double value){
-        if(value > 5000) return 5000;
-        else if(value < -5000) return -5000;
-        else return value;
     }
 }
